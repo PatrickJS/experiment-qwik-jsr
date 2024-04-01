@@ -42,7 +42,8 @@
     "vite-tsconfig-paths": "^4.2.1"
   },
   "dependencies": {
-    "@jsr/patrickjs__test-package": "0.0.4"
+    "@jsr/patrickjs__test-package": "0.0.4",
+    "@patrickjs/signals": "npm:@jsr/patrickjs__signals@0.0.4"
   },
   "optionalDependencies": {
     "@rollup/rollup-darwin-x64": "^4.13.2"

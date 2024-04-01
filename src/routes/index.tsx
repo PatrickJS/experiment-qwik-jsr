@@ -1,13 +1,17 @@
 import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import pjs from "@jsr/patrickjs__test-package";
+import { Counter } from "./signal-examples/signal-create";
 
 export default component$(() => {
   const message = useSignal(pjs(" I'm from the Server"));
   // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(async () => {
+    const counter = new Counter();
+    counter.increment();
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    message.value = pjs(" I'm visible on the Client");
+    counter.increment();
+    message.value = pjs(" I'm visible on the Client " + counter.value.get());
   });
   return (
     <>
